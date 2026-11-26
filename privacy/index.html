@@ -3,42 +3,59 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy: Inbox-bridge-mcp</title>
+<title>Inbox-bridge-mcp Privacy Policy</title>
 <style>
   body { font: 16px/1.6 -apple-system, system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #1d1d1f; background: #fff; }
   h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; vertical-align: top; }
   code { font-size: 0.9em; }
 </style>
 </head>
 <body>
-<h1>Privacy Policy: Inbox-bridge-mcp</h1>
-<p>Effective date: November 26, 2026. Operator: bn5.me. Contact: <a href="mailto:mail@bn5.me">mail@bn5.me</a>.</p>
+<h1>Inbox-bridge-mcp Privacy Policy</h1>
+<p>Effective date: November 26, 2026. This policy covers the Inbox-bridge-mcp application (OAuth client "Inbox-bridge-mcp"), operated by bn5.me. Contact: <a href="mailto:mail@bn5.me">mail@bn5.me</a>. Home page: <a href="https://bn5.me/">bn5.me</a>.</p>
 
-<h2>What this application is</h2>
-<p>Inbox-bridge-mcp is a private, single-operator tool. It lets the operator read his own Gmail messages and Google Calendar events, across several Google accounts that he owns or that their owners have explicitly authorized, from his own computer. It is not offered to the public and has no other users.</p>
+<h2>1. What Inbox-bridge-mcp is</h2>
+<p>Inbox-bridge-mcp is a private, single-operator application that runs on its operator's own computer. It reads the operator's Gmail and Google Calendar across several Google accounts that the operator owns, or whose owners have explicitly authorized it, and presents them in one place: a daily summary of unread mail and upcoming events, search across the accounts, and the text of a specific thread when asked. It is not offered to the public, has no sign-up and has no other users.</p>
 
-<h2>Google user data we access</h2>
+<h2>2. Google user data we access, and why</h2>
+<table>
+  <tr><th>Permission (scope)</th><th>Data accessed</th><th>Why</th></tr>
+  <tr><td><code>gmail.readonly</code></td><td>Message headers (sender, recipients, subject, date), labels, snippets, message bodies and attachments</td><td>To list unread mail, search mail, show a thread the operator asks for, and save an attachment the operator asks for</td></tr>
+  <tr><td><code>calendar.readonly</code></td><td>The list of calendars and their events (time, title, location, attendee count, the operator's response)</td><td>To show today's and tomorrow's schedule across the accounts</td></tr>
+  <tr><td><code>gmail.modify</code> (only on two accounts the operator owns)</td><td>The same as <code>gmail.readonly</code>, plus the ability to change labels and read state and to create drafts</td><td>To apply a label, mark a message read, or save a reply as a draft, each only when the operator asks. The application never sends, trashes or deletes mail, even though this permission would allow it.</td></tr>
+</table>
+<p>We also receive the email address of each connected account, to tell the accounts apart. We do not access contacts, Drive files or any other Google data.</p>
+
+<h2>3. How the data is used</h2>
+<p>Google user data is used only to provide the features in section 1 to the operator, for the accounts the operator connected. It is not used for advertising, is not sold, is not used to build user profiles, and is not used to develop, improve or train generalized artificial intelligence or machine learning models.</p>
+
+<h2>4. How the data is stored and protected</h2>
 <ul>
-  <li><strong>Gmail</strong> (<code>gmail.readonly</code>; for two of the operator's own accounts, <code>gmail.modify</code>): message metadata, message content and attachments, used to build the operator's daily summary and to search his own mail. <code>gmail.modify</code> is used only to apply labels, mark messages read and create drafts. The application never sends, trashes or deletes mail.</li>
-  <li><strong>Google Calendar</strong> (<code>calendar.readonly</code>): the list of calendars and their events, used to build the operator's daily schedule. The application never creates, changes or deletes events.</li>
+  <li>OAuth tokens are stored in the macOS Keychain on the operator's computer, protected by the operator's login password.</li>
+  <li>Mail and calendar data are fetched on demand and held in memory for at most 30 seconds as a cache. They are not written to a database.</li>
+  <li>Attachments are saved only when the operator asks, in a private folder on the operator's computer, and deleted after 30 days.</li>
+  <li>A local log records which tool ran, for which account, and the message or thread identifiers involved. It does not contain message content.</li>
+  <li>Nothing is stored on any server operated by Inbox-bridge-mcp; there is none. Data travels between Google and the operator's computer over HTTPS.</li>
 </ul>
 
-<h2>How the data is used</h2>
-<p>Google user data is used only to provide the features above to the account owner who authorized access. It is not used for advertising, is not sold, and is not used to develop, improve or train generalized artificial intelligence or machine learning models.</p>
+<h2>5. Sharing</h2>
+<p>Google user data is not sold, rented or transferred to third parties, data brokers or advertising services. The single exception is that the operator uses an AI assistant (Anthropic's Claude) on his own behalf to read and summarize his own mail and calendar; excerpts of the operator's own data pass to that assistant only when the operator asks it to. Data may also be disclosed if required by law. No person other than the operator reads the data, except as required by law or with the account owner's consent.</p>
 
-<h2>Storage and security</h2>
-<p>OAuth tokens are stored in the macOS Keychain on the operator's computer. Mail and calendar data are fetched on demand and held in memory or in short-lived local cache files on that computer; downloaded attachments are stored locally and deleted periodically. Nothing is stored on servers operated by this application.</p>
+<h2>6. Retention and deletion</h2>
+<p>Cached mail and calendar data expire within 30 seconds; saved attachments are deleted after 30 days; the local log is rotated at 10 MB. OAuth tokens are kept until access is revoked. Any account owner can revoke access at any time from <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, which stops all access immediately. To have the token and any locally stored data for an account deleted, email <a href="mailto:mail@bn5.me">mail@bn5.me</a>; it will be deleted within 30 days.</p>
 
-<h2>Sharing</h2>
-<p>Google user data is not shared with or transferred to third parties, except that the operator may pass excerpts of his own data to an AI assistant he uses on his own behalf to summarize or answer questions about it. No data is shared for any other purpose, and none is transferred to data brokers or advertising services.</p>
+<h2>7. Limited Use disclosure</h2>
+<p>Inbox-bridge-mcp's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. In particular, Inbox-bridge-mcp uses Google user data only to provide the user-facing features described above; does not transfer it except as described in section 5; does not use it for advertising; does not allow humans to read it except as described in section 5; and does not use it to train AI or machine learning models.</p>
 
-<h2>Retention and deletion</h2>
-<p>Tokens remain until access is revoked. Any account owner can revoke access at any time from <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>; revocation stops all access immediately. To request deletion of any locally stored data, email <a href="mailto:mail@bn5.me">mail@bn5.me</a>; it will be deleted within 30 days.</p>
+<h2>8. Children</h2>
+<p>Inbox-bridge-mcp is not directed to children and is not used with accounts of children under 13.</p>
 
-<h2>Google API Services User Data Policy</h2>
-<p>Inbox-bridge-mcp's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-
-<h2>Changes</h2>
+<h2>9. Changes</h2>
 <p>Changes to this policy are posted on this page with a new effective date.</p>
+
+<h2>10. Contact</h2>
+<p><a href="mailto:mail@bn5.me">mail@bn5.me</a></p>
 </body>
 </html>
